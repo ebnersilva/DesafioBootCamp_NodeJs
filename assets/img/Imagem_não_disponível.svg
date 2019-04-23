@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="300px"
+   width="300px"
+   version="1.0"
+   viewBox="-300 -300 600 600"
+   xml:space="preserve"
+   id="svg6687"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Imagem_não_disponível.svg"><metadata
+     id="metadata6701"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs6699" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     id="namedview6697"
+     showgrid="false"
+     inkscape:zoom="0.78666667"
+     inkscape:cx="150"
+     inkscape:cy="150"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6687" /><circle
+     stroke="#AAA"
+     stroke-width="10"
+     r="280"
+     fill="#FFF"
+     id="circle6689" /><text
+     style="font-size:360px;line-height:125%;font-family:'Bitstream Vera Sans', 'Liberation Sans', Arial, sans-serif;text-align:center;letter-spacing:1;writing-mode:lr-tb;text-anchor:middle;fill:#444444;stroke:#000000;stroke-width:2;stroke-opacity:0.5"
+     transform="scale(0.2,0.2)"
+     id="text6691"
+     sodipodi:linespacing="125%">IMAGEM NÃO</text>
+<text
+     y="77.362747"
+     x="-0.59765625"
+     style="font-size:72px;line-height:125%;font-family:'Bitstream Vera Sans', 'Liberation Sans', Arial, sans-serif;text-align:center;letter-spacing:0.2;writing-mode:lr-tb;text-anchor:middle;fill:#444444;stroke:#000000;stroke-width:0.40000001;stroke-opacity:0.5"
+     id="text6691-6"
+     sodipodi:linespacing="125%">DISPONíVEL</text>
+</svg>
