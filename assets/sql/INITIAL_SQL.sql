@@ -1,0 +1,1 @@
+INSERT INTO files (FILE, NAME, TYPE, SUBTYPE,CREATED_AT, UPDATED_AT) VALUES ('1555352811328.svg','Imagem_não_disponível.svg','image','svg', NOW(), NOW())
