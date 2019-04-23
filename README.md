@@ -14,7 +14,7 @@ Esse é um guia básico de instalação do BackEnd
 
 ### UserSubscription
 
-POST -> http://localhost:3333/usersubscriptions -> Cria uma inscrição no banco de dados
+POST -> http://localhost:3333/usersubscriptions -> Cria uma inscrição no banco de dados  
 
 ```
 {
@@ -24,11 +24,11 @@ POST -> http://localhost:3333/usersubscriptions -> Cria uma inscrição no banco
 
 ```
 
-GET -> http://localhost:3333/usersubscriptions/:id -> Retorna quantos inscritos tem no meetup informado por parametro
+GET -> http://localhost:3333/usersubscriptions/:id -> Retorna quantos inscritos tem no meetup informado por parametro  
 
 ### UserPreference
 
-POST -> http://localhost:3333/user_preferences -> Cria as preferencias do usuário (1 ou mais preferencias)
+POST -> http://localhost:3333/user_preferences -> Cria as preferencias do usuário (1 ou mais preferencias)  
 
 ```
 {
@@ -48,12 +48,12 @@ POST -> http://localhost:3333/user_preferences -> Cria as preferencias do usuár
 
 ### File
 
-POST Multipart -> http://localhost:3333/files/file -> Grava o arquivo em uma pasta do sistema e gera um registro no banco de dados
-GET -> http://localhost:3333/files/:id -> Mostra a imagem de acordo com o ID
+POST Multipart -> http://localhost:3333/files/file -> Grava o arquivo em uma pasta do sistema e gera um registro no banco de dados  
+GET -> http://localhost:3333/files/:id -> Mostra a imagem de acordo com o ID  
 
 ### Preference
 
-POST -> http://localhost:3333/preference -> Cria as preferencias padrão no banco de dados
+POST -> http://localhost:3333/preference -> Cria as preferencias padrão no banco de dados  
 
 ```
 {
@@ -81,7 +81,7 @@ POST -> http://localhost:3333/preference -> Cria as preferencias padrão no banc
 
 ### MeetUps
 
-POST -> http://localhost:3333/meetups -> Cria o meetUp no banco de dados
+POST -> http://localhost:3333/meetups -> Cria o meetUp no banco de dados  
 
 ```
 {
@@ -96,16 +96,16 @@ POST -> http://localhost:3333/meetups -> Cria o meetUp no banco de dados
 
 ```
 
-GET -> http://localhost:3333/meetupsbytitle/Evento%20Front-End -> Pesquisa o MeetUp pelo titulo
-GET -> http://localhost:3333/meetupsrecomended -> Mostra os MeetUps recomendados para o usuário de acordo com suas preferências
-GET -> http://localhost:3333/meetupssubscript -> Mostra os MeetUps que o usuário está inscrito
-GET -> http://localhost:3333/meetupsnotsubscript -> Mostra os MeetUps que o usuário não está inscrito
-GET -> http://localhost:3333/meetups -> Mostra todos os MeetUps
-GET -> http://localhost:3333/meetups/:id -> Pesquisa o MeetUp pelo id
+GET -> http://localhost:3333/meetupsbytitle/Evento%20Front-End -> Pesquisa o MeetUp pelo titulo  
+GET -> http://localhost:3333/meetupsrecomended -> Mostra os MeetUps recomendados para o usuário de acordo com suas preferências  
+GET -> http://localhost:3333/meetupssubscript -> Mostra os MeetUps que o usuário está inscrito  
+GET -> http://localhost:3333/meetupsnotsubscript -> Mostra os MeetUps que o usuário não está inscrito  
+GET -> http://localhost:3333/meetups -> Mostra todos os MeetUps  
+GET -> http://localhost:3333/meetups/:id -> Pesquisa o MeetUp pelo id  
 
 ### ForgotPassword
 
-POST -> http://localhost:3333/passwords -> Cria uma solicitação para redefinir a senha
+POST -> http://localhost:3333/passwords -> Cria uma solicitação para redefinir a senha  
 
 ```
 {
@@ -115,7 +115,7 @@ POST -> http://localhost:3333/passwords -> Cria uma solicitação para redefinir
 
 ```
 
-PUT -> http://localhost:3333/passwords -> Redefini a senha no banco de dados
+PUT -> http://localhost:3333/passwords -> Redefini a senha no banco de dados  
 
 ```
 {
@@ -127,7 +127,7 @@ PUT -> http://localhost:3333/passwords -> Redefini a senha no banco de dados
 
 ### Sessions
 
-POST -> http://localhost:3333/sessions -> Cria uma nova sessão no sistema gerando um token JWT
+POST -> http://localhost:3333/sessions -> Cria uma nova sessão no sistema gerando um token JWT  
 
 ```
 {
@@ -139,7 +139,7 @@ POST -> http://localhost:3333/sessions -> Cria uma nova sessão no sistema geran
 
 ### Users
 
-POST -> http://localhost:3333/users -> Cria o usuário no banco de dados
+POST -> http://localhost:3333/users -> Cria o usuário no banco de dados  
 
 ```
 {
@@ -150,7 +150,7 @@ POST -> http://localhost:3333/users -> Cria o usuário no banco de dados
 
 ```
 
-PUT -> http://localhost:3333/users:id -> Atualiza o usuário no banco de dados
+PUT -> http://localhost:3333/users:id -> Atualiza o usuário no banco de dados  
 
 ```
 {
@@ -171,4 +171,4 @@ PUT -> http://localhost:3333/users:id -> Atualiza o usuário no banco de dados
 
 ```
 
-GET -> http://localhost:3333/users -> Pesquisa todos os usuários no sistema
+GET -> http://localhost:3333/users -> Pesquisa todos os usuários no sistema  
