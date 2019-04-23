@@ -5,10 +5,8 @@ Esse é um guia básico de instalação do BackEnd
 1. Clone o repositório
 2. No diretório da aplicação rode: adonis migration:run
 3. No diretório da aplicação rode: adonis serve
-4. Rode o script SQL disponibilizado em assets/sql/INITIAL_SQL para inicialização de valores no Banco de dados Mysql
+4. Rode o script SQL disponibilizado em assets/sql/INITIAL_SQL para inicialização de valores no Banco de dados da aplicação (Mysql)
 5. Processo finalizado
-
-## Setup
 
 ## Serviços disponíveis
 
