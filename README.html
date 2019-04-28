@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Desafio RocketSeat - BackEnd em NodeJS</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="desafio-rocketseat---backend-em-nodejs">Desafio RocketSeat - BackEnd em NodeJS</h1>
+<p>Esse é um guia básico de instalação do BackEnd</p>
+<ol>
+<li>Clone o repositório</li>
+<li>No diretório da aplicação rode: adonis migration:run</li>
+<li>No diretório da aplicação rode: adonis serve</li>
+<li>No Terminal rode redis start redis</li>
+<li>Rode o script SQL disponibilizado em assets/sql/INITIAL_SQL para inicialização de valores no Banco de dados da aplicação (Mysql)</li>
+<li>Processo finalizado</li>
+</ol>
+<h2 id="servi%C3%A7os-dispon%C3%ADveis">Serviços disponíveis</h2>
+<h3 id="usersubscription">UserSubscription</h3>
+<p>POST -&gt; <a href="http://localhost:3333/usersubscriptions">http://localhost:3333/usersubscriptions</a> -&gt; Cria uma inscrição no banco de dados</p>
+<pre><code><div>{
+	&quot;user_id&quot;: 2,
+	&quot;meetup_id&quot;: 1
+}
+
+</div></code></pre>
+<p>GET -&gt; <a href="http://localhost:3333/usersubscriptions/:id">http://localhost:3333/usersubscriptions/:id</a> -&gt; Retorna quantos inscritos tem no meetup informado por parametro</p>
+<h3 id="userpreference">UserPreference</h3>
+<p>POST -&gt; <a href="http://localhost:3333/user_preferences">http://localhost:3333/user_preferences</a> -&gt; Cria as preferencias do usuário (1 ou mais preferencias)</p>
+<pre><code><div>{
+	&quot;preferences&quot;: [
+		{
+			&quot;user_id&quot;: 1,
+			&quot;pref_id&quot;: 2
+		},
+		{
+			&quot;user_id&quot;: 1,
+			&quot;pref_id&quot;: 1
+		}
+	]
+}
+
+</div></code></pre>
+<h3 id="file">File</h3>
+<p>POST Multipart -&gt; <a href="http://localhost:3333/files/file">http://localhost:3333/files/file</a> -&gt; Grava o arquivo em uma pasta do sistema e gera um registro no banco de dados<br>
+GET -&gt; <a href="http://localhost:3333/files/:id">http://localhost:3333/files/:id</a> -&gt; Mostra a imagem de acordo com o ID</p>
+<h3 id="preference">Preference</h3>
+<p>POST -&gt; <a href="http://localhost:3333/preference">http://localhost:3333/preference</a> -&gt; Cria as preferencias padrão no banco de dados</p>
+<pre><code><div>{
+	&quot;preferences&quot;: [
+		{
+			&quot;description&quot;: &quot;Front-End&quot;
+		},
+		{
+			&quot;description&quot;: &quot;Back-End&quot;
+		},
+		{
+			&quot;description&quot;: &quot;Mobile&quot;
+		},
+		{
+			&quot;description&quot;: &quot;DevOps&quot;
+		},
+		{
+			&quot;description&quot;: &quot;Gestão e Marketing&quot;
+		}
+	]
+
+}
+
+</div></code></pre>
+<h3 id="meetups">MeetUps</h3>
+<p>POST -&gt; <a href="http://localhost:3333/meetups">http://localhost:3333/meetups</a> -&gt; Cria o meetUp no banco de dados</p>
+<pre><code><div>{
+	&quot;user_id&quot;: 1,
+	&quot;id_category&quot;: 1,
+	&quot;file_id&quot;: 2,
+	&quot;date_event&quot;: &quot;2019-04-20 08:00:00&quot;,
+	&quot;location&quot;: &quot;Avenida das Araucárias, 5400, Araucária - PR&quot;,
+	&quot;title&quot;: &quot;Evento Front-End&quot;,
+	&quot;description&quot;: &quot;Esse evento abordará CSS3 e será muito top de linha&quot;
+}
+
+</div></code></pre>
+<p>GET -&gt; <a href="http://localhost:3333/meetupsbytitle/Evento%20Front-End">http://localhost:3333/meetupsbytitle/Evento Front-End</a> -&gt; Pesquisa o MeetUp pelo titulo<br>
+GET -&gt; <a href="http://localhost:3333/meetupsrecomended">http://localhost:3333/meetupsrecomended</a> -&gt; Mostra os MeetUps recomendados para o usuário de acordo com suas preferências<br>
+GET -&gt; <a href="http://localhost:3333/meetupssubscript">http://localhost:3333/meetupssubscript</a> -&gt; Mostra os MeetUps que o usuário está inscrito<br>
+GET -&gt; <a href="http://localhost:3333/meetupsnotsubscript">http://localhost:3333/meetupsnotsubscript</a> -&gt; Mostra os MeetUps que o usuário não está inscrito<br>
+GET -&gt; <a href="http://localhost:3333/meetups">http://localhost:3333/meetups</a> -&gt; Mostra todos os MeetUps<br>
+GET -&gt; <a href="http://localhost:3333/meetups/:id">http://localhost:3333/meetups/:id</a> -&gt; Pesquisa o MeetUp pelo id</p>
+<h3 id="forgotpassword">ForgotPassword</h3>
+<p>POST -&gt; <a href="http://localhost:3333/passwords">http://localhost:3333/passwords</a> -&gt; Cria uma solicitação para redefinir a senha</p>
+<pre><code><div>{
+	&quot;email&quot;: &quot;ebner.suporte@hotmail.com&quot;,
+	&quot;redirect_url&quot;: &quot;http://www.meusistema.com.br/resetar_senha&quot;
+}
+
+</div></code></pre>
+<p>PUT -&gt; <a href="http://localhost:3333/passwords">http://localhost:3333/passwords</a> -&gt; Redefini a senha no banco de dados</p>
+<pre><code><div>{
+	&quot;token&quot;: &quot;d717fce480b647e1a442&quot;,
+	&quot;password&quot;: &quot;12341234&quot;
+}
+
+</div></code></pre>
+<h3 id="sessions">Sessions</h3>
+<p>GET -&gt; <a href="http://localhost:3333/sessions">http://localhost:3333/sessions</a> -&gt; Retorna os dados do usuário de acordo com o Token JWT informado
+POST -&gt; <a href="http://localhost:3333/sessions">http://localhost:3333/sessions</a> -&gt; Cria uma nova sessão no sistema gerando um token JWT</p>
+<pre><code><div>{
+	&quot;email&quot;: &quot;jenifer.dso@hotmail.com&quot;,
+	&quot;password&quot;: &quot;123456&quot;
+}
+
+</div></code></pre>
+<h3 id="users">Users</h3>
+<p>POST -&gt; <a href="http://localhost:3333/users">http://localhost:3333/users</a> -&gt; Cria o usuário no banco de dados</p>
+<pre><code><div>{
+	&quot;username&quot;:&quot;emersoncaetano&quot;,
+	&quot;email&quot;: &quot;emerson.c@hotmail.com&quot;,
+	&quot;password&quot;: &quot;123456&quot;
+}
+
+</div></code></pre>
+<p>PUT -&gt; <a href="http://localhost:3333/users:id">http://localhost:3333/users:id</a> -&gt; Atualiza o usuário no banco de dados</p>
+<pre><code><div>{
+	&quot;username&quot;:&quot;ebnerdeath&quot;,
+	&quot;email&quot;: &quot;ebner.suporte@hotmail.com&quot;,
+	&quot;password&quot;: &quot;123456&quot;,
+	&quot;preferences&quot;: [
+		{
+			&quot;user_id&quot;: 1,
+			&quot;pref_id&quot;: 2
+		},
+		{
+			&quot;user_id&quot;: 1,
+			&quot;pref_id&quot;: 3
+		}
+	]
+}
+
+</div></code></pre>
+<p>GET -&gt; <a href="http://localhost:3333/users">http://localhost:3333/users</a> -&gt; Pesquisa todos os usuários no sistema</p>
+
+    </body>
+    </html>
