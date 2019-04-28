@@ -4,15 +4,15 @@ const Model = use('Model')
 
 class MeetUp extends Model {
   user () {
-    return this.hasOne('App/Models/User')
+    return this.belongsTo('App/Models/User')
   }
 
   category () {
-    return this.hasOne('App/Models/Preference')
+    return this.belongsTo('App/Models/Preference')
   }
 
   file () {
-    return this.hasOne('App/Models/File')
+    return this.belongsTo('App/Models/File')
   }
 }
 

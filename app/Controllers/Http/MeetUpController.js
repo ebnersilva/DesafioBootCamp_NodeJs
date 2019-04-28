@@ -21,6 +21,7 @@ class MeetUpController {
     const meetUpsOfUserId = Database.from('user_subscriptions')
       .where('user_subscriptions.user_id', userId)
       .select('meetup_id')
+      .groupBy('user_subscriptions.meetup_id')
 
     const meetups = MeetUp.query()
       .whereNotIn('meet_ups.id', meetUpsOfUserId) // Selecionamos todos os meetups com inscritos mas que o usuário logado não esteja
@@ -34,13 +35,14 @@ class MeetUpController {
   async indexSubscript ({ auth }) {
     const userId = auth.user.id
 
-    const meetups = MeetUp.query()
-      .innerJoin(
-        'user_subscriptions',
-        'meet_ups.id',
-        'user_subscriptions.meetup_id'
-      )
+    // Aqui capturamos o id de todas as inscrições do usuário Logado
+    const meetUpsOfUserId = Database.from('user_subscriptions')
       .where('user_subscriptions.user_id', userId)
+      .select('meetup_id')
+      .groupBy('user_subscriptions.meetup_id')
+
+    const meetups = MeetUp.query()
+      .whereIn('meet_ups.id', meetUpsOfUserId)
       .groupBy('meet_ups.id')
       .fetch()
 
@@ -70,9 +72,10 @@ class MeetUpController {
   }
 
   // Cria um novo meetUp
-  async store ({ request, response }) {
+  async store ({ request, response, auth }) {
+    const user_id = auth.user.id
+
     const data = request.only([
-      'user_id',
       'id_category',
       'file_id',
       'date_event',
@@ -81,6 +84,7 @@ class MeetUpController {
       'description'
     ])
 
+    data.user_id = user_id
     const meetUp = await MeetUp.create(data)
 
     return meetUp
@@ -103,11 +107,53 @@ class MeetUpController {
     return meetUp
   }
 
-  // Mostra um meetUp específico filtrando pelo id
+  // Mostra os meetUps filtrando pelo titulo
   async showByTitle ({ params }) {
     // console.log('Teste' + decodeURIComponent(params.title))
 
     var meetUp = await MeetUp.query()
+      .where('title', decodeURIComponent(params.title))
+      .with('file')
+      .fetch()
+
+    return meetUp
+  }
+
+  // Mostra os meetUps que o usuário está inscrito filtrando pelo titulo
+  async showSubscriptByTitle ({ params, auth }) {
+    const userId = auth.user.id
+
+    var meetUp = await MeetUp.query()
+      .innerJoin(
+        'user_subscriptions',
+        'user_subscriptions.meetup_id',
+        'meet_ups.id'
+      )
+      .where('title', decodeURIComponent(params.title))
+      .where('user_subscriptions.user_id', userId)
+      .with('file')
+      .fetch()
+
+    return meetUp
+  }
+
+  // Mostra os meetUps recomendados mas que o usuário ainda não está inscrito de acordo com o título
+  async showRecommendedByTitle ({ params, auth }) {
+    const userId = auth.user.id
+
+    // Aqui capturamos quais são as preferencias do usuário
+    const prefsOfUserId = Database.from('user_preferences')
+      .where('user_preferences.user_id', userId)
+      .select('pref_id')
+
+    // Aqui capturamos quais são os meetups que o usuário já está incluso
+    const meetupsOfUserId = Database.from('user_subscriptions')
+      .where('user_subscriptions.user_id', userId)
+      .select('meetup_id')
+
+    var meetUp = await MeetUp.query()
+      .whereIn('id_category', prefsOfUserId)
+      .whereNotIn('id', meetupsOfUserId)
       .where('title', decodeURIComponent(params.title))
       .with('file')
       .fetch()

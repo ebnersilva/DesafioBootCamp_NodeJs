@@ -125,6 +125,7 @@ PUT -> http://localhost:3333/passwords -> Redefini a senha no banco de dados
 
 ### Sessions
 
+GET -> http://localhost:3333/sessions -> Retorna os dados do usuário de acordo com o Token JWT informado
 POST -> http://localhost:3333/sessions -> Cria uma nova sessão no sistema gerando um token JWT  
 
 ```
